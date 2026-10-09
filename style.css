@@ -1,0 +1,104 @@
+:root {
+  --primary-blue: #0284c7;
+  --light-blue: #e0f2fe;
+  --accent-green: #10b981;
+  --soft-green: #d1fae5;
+  --alert-red: #ef4444;
+  --gold-yellow: #f59e0b;
+  --text-dark: #1e293b;
+  --bg-gradient: linear-gradient(135deg, #e0f2fe 0%, #ffffff 50%, #d1fae5 100%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: var(--bg-gradient);
+  color: var(--text-dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Upper */
+.app-header {
+  background: white;
+  border-bottom: 3px solid var(--accent-green);
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.app-header h1 {
+  font-size: 1.1rem;
+  color: var(--primary-blue);
+  font-weight: 800;
+}
+
+.app-header p {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+/* Modal Popup */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+}
+
+/* Layout Papan Game & Sidebar */
+.game-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 20px;
+  padding: 20px;
+  height: calc(100vh - 80px);
+}
+
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  gap: 2px;
+  background: #cbd5e1;
+  padding: 4px;
+  border-radius: 12px;
+  height: 100%;
+}
+
+/* Warna Petak */
+.cell { background: #ffffff; display: flex; align-items: center; justify-content: center; position: relative; font-weight: bold; font-size: 0.75rem; }
+.cell-quiz { background: #dbeafe; border: 1px solid var(--primary-blue); } /* Biru Muda */
+.cell-super { background: #fef3c7; border: 1px solid var(--gold-yellow); } /* Kuning Mas */
+.cell-bonus { background: #d1fae5; border: 1px solid var(--accent-green); } /* Hijau Muda */
+.cell-snake { background: #fee2e2; } /* Merah Muda (Ular) */
+.cell-ladder { background: #ecfdf5; } /* Hijau Segar (Tangga) */
+
+/* Resiliensi Text Box */
+.feedback-box {
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #f8fafc;
+}

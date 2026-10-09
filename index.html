@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Board Game Persamaan dan Fungsi Kuadrat</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header Permanen Upper -->
+  <header class="app-header">
+    <div class="header-content">
+      <h1>DIGITAL BOARD GAME PERSAMAAN DAN FUNGSI KUADRAT</h1>
+      <p>Karya: Afiatul Latifah, S. Pd., Gr. | SMAIT RAUDHATUL JANNAH CILEGON</p>
+    </div>
+    <div class="audio-controls">
+      <button id="btn-music" class="icon-btn">🎵 On</button>
+      <input type="range" id="vol-control" min="0" max="1" step="0.1" value="0.5">
+    </div>
+  </header>
+
+  <main class="main-container">
+
+    <!-- LAYAR 1: PENGATURAN KELOMPOK -->
+    <section id="screen-setup" class="screen active">
+      <h2>Pengaturan Kelompok</h2>
+      <p class="subtitle">Pilih jumlah kelompok, tentukan nama, dan pilih avatar favoritmu!</p>
+
+      <div class="form-group">
+        <label>Jumlah Kelompok (2 - 6):</label>
+        <select id="team-count-select">
+          <option value="2">2 Kelompok</option>
+          <option value="3">3 Kelompok</option>
+          <option value="4" selected>4 Kelompok</option>
+          <option value="5">5 Kelompok</option>
+          <option value="6">6 Kelompok</option>
+        </select>
+      </div>
+
+      <div id="team-inputs-container" class="team-grid">
+        <!-- Generasi input kelompok lewat JS -->
+      </div>
+
+      <button id="btn-to-instructions" class="btn-primary">Lanjut ke Petunjuk</button>
+    </section>
+
+    <!-- LAYAR 2: PETUNJUK PERMAINAN -->
+    <section id="screen-instructions" class="screen">
+      <h2>Petunjuk Permainan</h2>
+      <div class="instructions-card">
+        <ol>
+          <li><strong>Lempar Dadu & Melangkah:</strong> Setiap kelompok bergantian mengocok dadu. Pion akan melangkah otomatis sesuai angka dadu.</li>
+          <li><strong>Tangga Naik 🪜:</strong> Mendarat di pangkal tangga membawa kelompok langsung naik ke petak atas.</li>
+          <li><strong>Ular Turun 🐍:</strong> Mendarat di kepala ular akan menurunkan pion ke posisi ekor.</li>
+          <li><strong>Kuis Matematika ❓:</strong> Jawab soal persamaan/fungsi kuadrat di petak tertentu untuk mendapatkan bonus langkah (+2 atau +3). Jika salah, jangan berkecil hati dan tetap semangat!</li>
+          <li><strong>Petak Bonus 🎁:</strong> Mendarat di petak ini memberikan tambahan +2 langkah gratis.</li>
+        </ol>
+      </div>
+      <button id="btn-start-game" class="btn-primary">Mulai Permainan!</button>
+    </section>
+
+    <!-- LAYAR 3: ARENA PERMAINAN -->
+    <section id="screen-game" class="screen">
+      <div class="game-layout">
+        
+        <!-- Sidebar Kiri: Info & Kontrol -->
+        <aside class="game-sidebar">
+          
+          <div class="turn-card">
+            <h3>Giliran Bermain</h3>
+            <div id="current-turn-display" class="turn-box">
+              <span id="turn-avatar">🐱</span>
+              <span id="turn-team-name">Kelompok 1</span>
+            </div>
+            <p>Posisi Saat Ini: <strong id="turn-position">Petak 1</strong></p>
+          </div>
+
+          <div class="dice-section">
+            <div id="dice" class="dice-3d">1</div>
+            <button id="btn-roll-dice" class="btn-dice">Kocok Dadu</button>
+          </div>
+
+          <div class="leaderboard-card">
+            <h3>KLASEMEN KELOMPOK</h3>
+            <ul id="leaderboard-list">
+              <!-- Render otomatis lewat JS -->
+            </ul>
+          </div>
+
+        </aside>
+
+        <!-- Area Kanan: Papan Permainan -->
+        <div class="board-container">
+          <div id="board" class="board-grid">
+            <!-- 100 Petak di-generate otomatis via JS -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL SOAL / KUIS -->
+  <div id="quiz-modal" class="modal">
+    <div class="modal-content">
+      <span class="badge" id="quiz-badge">Soal Kuis</span>
+      <h3 id="quiz-title">Pertanyaan Persamaan Kuadrat</h3>
+      <p id="quiz-question" class="question-text"></p>
+      
+      <div id="quiz-options" class="options-grid"></div>
+
+      <div id="quiz-feedback" class="feedback-box hidden">
+        <p id="feedback-text"></p>
+        <button id="btn-close-quiz" class="btn-primary">Lanjutkan</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
